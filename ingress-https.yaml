@@ -12,5 +12,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: nginx
-          servicePort: 80
+          serviceName: hello-world
+          servicePort: 60000

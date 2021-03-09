@@ -1,3 +1,12 @@
+## This repo has a sample deployment and Ingress Config for Anthos on BareMetal. We cover both HTTP and HTTPS Ingress
+
+### Deploy the app
+
+```
+kubectl apply -f deploy.yaml
+kubectl apply -f service.yaml
+```
+
 ```
 mkdir certs && cd certs
 
