@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: hello-world
 spec:
-  type: clusterIP
+  type: ClusterIP
   selector:
     greeting: hello
     department: world

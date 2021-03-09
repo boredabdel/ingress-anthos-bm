@@ -21,7 +21,7 @@ kubectl apply ingress-http.yaml
 ```
 ### Try the HTTP Ingress
 ```
-curl http://INGRESS_VIP
+curl http://$INGRESS_VIP
 ```
 
 ### Option 2: Deploy HTTPS Ingress
@@ -34,14 +34,14 @@ openssl req -new -key test-ingress.key -out test-ingress.csr -subj "/CN=example.
 
 openssl x509 -req -days 365 -in test-ingress.csr -signkey test-ingress.key -out test-ingress.crt
 
-kubectl create secret tls nginx-certs --cert test-ingress.crt --key test-ingress.key -n gke-system
+kubectl create secret tls example-com-certs --cert test-ingress.crt --key test-ingress.key -n gke-system
 
 cd ..
 
 kubectl apply -f ingress-https.yaml
 ```
 
-### Try the HTTP Ingress
+### Try the HTTPS Ingress
 ```
-curl -k https://INGRESS_VIP
+curl -k -HHost:example.com --resolve "example.com:443:$INGRESS_VIP" "https://example.com"
 ```
